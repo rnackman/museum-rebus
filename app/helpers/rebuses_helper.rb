@@ -1,0 +1,2 @@
+module RebusesHelper
+end

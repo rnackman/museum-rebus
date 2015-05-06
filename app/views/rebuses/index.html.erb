@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Rebuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rebuses.each do |rebus| %>
+      <tr>
+        <td><%= link_to 'Show', rebus %></td>
+        <td><%= link_to 'Edit', edit_rebus_path(rebus) %></td>
+        <td><%= link_to 'Destroy', rebus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rebus', new_rebus_path %>

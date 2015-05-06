@@ -1,0 +1,3 @@
+<% rebus.words.each do |word| %>
+  <div class="word" id="word-<%= word.id %>"><%= render partial: 'rebuses/words/word', locals: { word: word } %></div>
+<% end %>
