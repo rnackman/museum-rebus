@@ -2,9 +2,13 @@
 <%= image_tag word.images[current_index][:image_url], class: 'word-image' %>
 
 <ul class="pagination pagination-sm">
-  <li><%= link_to "<<", last_image_rebus_word_path(rebus_id: rebus.id, id: word.id, current_index: current_index), method: :post, remote: true%></li>
+  <% if word.images[current_index - 1] %>
+    <li><%= link_to "<<", last_image_rebus_word_path(rebus_id: rebus.id, id: word.id, current_index: current_index), method: :post, remote: true%></li>
+  <% end %>
   <li><%= link_to "Back to word", text_rebus_word_path(rebus_id: rebus.id, id: word.id, image_url: image_url), method: :post, remote: true %></li>
-  <li><%= link_to ">>", next_image_rebus_word_path(rebus_id: rebus.id, id: word.id, current_index: current_index), method: :post, remote: true%></li>
+  <% if word.images[current_index + 1] %>
+    <li><%= link_to ">>", next_image_rebus_word_path(rebus_id: rebus.id, id: word.id, current_index: current_index), method: :post, remote: true%></li>
+  <% end %>
 </ul>
 
 <div class="list-group">
