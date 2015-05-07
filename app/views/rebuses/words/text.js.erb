@@ -1,1 +1,1 @@
-$('#<%= j @word_id %>').html('<%= j render partial: 'word', locals: {word: @word} %>');
+$('#<%= j @word_id %>').html('<%= j render partial: 'word', locals: {word: @word, rebus: @rebus} %>');

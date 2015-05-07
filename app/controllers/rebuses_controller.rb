@@ -26,8 +26,9 @@ class RebusesController < ApplicationController
   def create
     @rebus = Rebus.create(input_text: params[:rebus][:input_text]) 
     word_array = params['rebus']['input_text'].split(' ')
-    word_array.each do |word|
-      Word.create(rebus_id: @rebus.id, display_text: word)
+    word_array.each_with_index do |w, i|
+      @word = Word.find_or_create_by(display_text: w)
+      RebusWord.create(rebus_id: @rebus.id, word_id: @word.id, placement: i)
     end
 
     respond_to do |format|

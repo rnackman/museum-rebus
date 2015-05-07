@@ -3,6 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .thumbnail {
-  width: 150px;
-  height: auto;
+  max-height: 200px;
+}
+
+.word-container {
+  display: inline-block;
+  height: 200px;
+  margin: .5em;
+  text-align: center;
+}
+
+.word {
+  font-size: 54px;
+  font-family: Times, serif;
 }

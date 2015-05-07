@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150506152416) do
+ActiveRecord::Schema.define(version: 20150507021904) do
+
+  create_table "rebus_words", force: :cascade do |t|
+    t.integer "rebus_id"
+    t.integer "word_id"
+    t.integer "placement"
+  end
 
   create_table "rebuses", force: :cascade do |t|
     t.text     "input_text"
@@ -20,9 +26,9 @@ ActiveRecord::Schema.define(version: 20150506152416) do
   end
 
   create_table "words", force: :cascade do |t|
-    t.string  "display_text"
-    t.string  "image_url"
-    t.integer "rebus_id"
+    t.string "display_text"
+    t.string "image_url"
+    t.text   "images"
   end
 
 end
