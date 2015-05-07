@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     resources :words, controller: "rebuses/words" do
       post :text, on: :member
       post :image, on: :member
+      post :next_image, on: :member
+      post :last_image, on: :member
     end
   end
 

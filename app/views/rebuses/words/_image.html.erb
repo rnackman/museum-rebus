@@ -1,3 +1,15 @@
-<%= link_to text_rebus_word_path(rebus_id: rebus.id, id: word.id, image_url: image_url), method: :post, remote: true do %>
-  <%= image_tag image_url, class: 'thumbnail' %>
-<% end %>
+
+<%= image_tag word.images[current_index][:image_url], class: 'word-image' %>
+
+<ul class="pagination pagination-sm">
+  <li><%= link_to "<<", last_image_rebus_word_path(rebus_id: rebus.id, id: word.id, current_index: current_index), method: :post, remote: true%></li>
+  <li><%= link_to "Back to word", text_rebus_word_path(rebus_id: rebus.id, id: word.id, image_url: image_url), method: :post, remote: true %></li>
+  <li><%= link_to ">>", next_image_rebus_word_path(rebus_id: rebus.id, id: word.id, current_index: current_index), method: :post, remote: true%></li>
+</ul>
+
+<div class="list-group">
+  <a href="<%= word.images[current_index][:url]%>" target="_blank" class="list-group-item">
+    <h4 class="list-group-item-heading"><%= word.images[current_index][:title] %></h4>
+    <p class="list-group-item-text"><%= word.images[current_index][:medium]%>, <%= word.images[current_index][:dimensions]%>, <%= word.images[current_index][:creditline]%>, <%= word.images[current_index][:accession_number]%></p>
+  </a>
+</div>
